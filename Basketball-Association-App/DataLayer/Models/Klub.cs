@@ -9,11 +9,11 @@ namespace DataLayer.Models
     public class Klub
     {
 
-        private int Id { get; set; }
+        public int Id { get; set; }
 
-        private string Naziv { get; set; }
+        public string Naziv { get; set; }
 
-        private string Lokacija { get; set; }
+        public string Lokacija { get; set; }
 
 
     }

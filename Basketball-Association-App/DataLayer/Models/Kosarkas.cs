@@ -9,13 +9,13 @@ namespace DataLayer.Models
     public class Kosarkas
     {
 
-        private int Id { get; set; }
+        public int Id { get; set; }
 
-        private string Ime { get; set; }
+        public string Ime { get; set; }
 
-        private string Prezime { get; set; }
+        public string Prezime { get; set; }
 
-        private DateTime datum_rodjenja { get; set; }
+        public DateTime datum_rodjenja { get; set; }
 
     }
 }

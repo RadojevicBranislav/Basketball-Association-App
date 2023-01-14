@@ -8,13 +8,13 @@ namespace DataLayer.Models
 {
     public class Ugovor
     {
-        private DateTime datum_potpisivanja { get; set; }
+        public DateTime datum_potpisivanja { get; set; }
 
-        private DateTime datum_isteka { get; set; }
+        public DateTime datum_isteka { get; set; }
 
-        private int id_kosarkasa { get; set; }
+        public int id_kosarkasa { get; set; }
 
-        private int id_kluba { get; set; }
+        public int id_kluba { get; set; }
 
 
     }
