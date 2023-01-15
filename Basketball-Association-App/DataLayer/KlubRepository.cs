@@ -81,7 +81,7 @@ namespace DataLayer
             }
         }
 
-        public int UpdateKlub(int id, string newName)
+        public int UpdateKosarkasFullName(int id, string newName, string newLastName)
         {
             using (SqlConnection sqlConnection = new SqlConnection(ConstantParameters.connString))
             {
@@ -89,7 +89,7 @@ namespace DataLayer
 
                 sql.Connection = sqlConnection;
 
-                sql.CommandText = string.Format("UPDATE Klubovi SET naziv={1} WHERE Id={0}", id, newName);
+                sql.CommandText = string.Format("UPDATE Kosarkasi SET ime={1},prezime={2} WHERE Id={0}", id, newName, newLastName);
 
                 sqlConnection.Open();
 
