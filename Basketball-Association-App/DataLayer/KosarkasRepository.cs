@@ -83,6 +83,38 @@ namespace DataLayer
             }
         }
 
+        public Kosarkas GetKosarkasById(int id)
+        {
+            using (SqlConnection conn = new SqlConnection(ConstantParameters.connString))
+            {
 
-    }
+                SqlCommand sql = new SqlCommand();
+
+                sql.Connection = conn;
+
+                sql.CommandText = String.Format("SELECT * FROM Kosarkasi WHERE Id={0}", id);
+
+                Kosarkas k = new Kosarkas();
+
+                conn.Open();
+
+                SqlDataReader dataReader = sql.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+
+                    k.Id = dataReader.GetInt32(0);
+
+                    k.Ime = dataReader.GetString(1);
+
+                    k.Prezime = dataReader.GetString(2);
+
+                    k.datum_rodjenja = dataReader.GetDateTime(3);
+
+                }
+
+                return k;
+            }
+        }
+    } 
 }
