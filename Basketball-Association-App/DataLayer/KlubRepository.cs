@@ -81,7 +81,7 @@ namespace DataLayer
             }
         }
 
-        public int UpdateKosarkasFullName(int id, string newName, string newLastName)
+        public int UpdateKlubName(int id, string newName)
         {
             using (SqlConnection sqlConnection = new SqlConnection(ConstantParameters.connString))
             {
@@ -89,12 +89,40 @@ namespace DataLayer
 
                 sql.Connection = sqlConnection;
 
-                sql.CommandText = string.Format("UPDATE Kosarkasi SET ime={1},prezime={2} WHERE Id={0}", id, newName, newLastName);
+                sql.CommandText = string.Format("UPDATE Klubovi SET naziv={1} WHERE Id={0}", id, newName);
 
                 sqlConnection.Open();
 
                 return sql.ExecuteNonQuery();
             }
+        }
+
+        public Klub GetKlubById(int id)
+        {
+
+            using(SqlConnection sqlConnection = new SqlConnection(ConstantParameters.connString))
+            {
+                SqlCommand sql = new SqlCommand();
+
+                sql.Connection = sqlConnection;
+
+                sql.CommandText = string.Format("SELECT * FROM Klubovi WHERE Id={0}", id);
+
+                sqlConnection.Open();
+
+                SqlDataReader dataReader= sql.ExecuteReader();
+
+                Klub klub = new Klub();
+
+                klub.Id = dataReader.GetInt32(0);
+
+                klub.Naziv = dataReader.GetString(1);
+
+                klub.Lokacija= dataReader.GetString(2);
+
+                return klub;
+            }
+
         }
     }
 

@@ -59,7 +59,7 @@ namespace DataLayer
 
                 sql.Connection = sqlConnection;
 
-                sql.CommandText = string.Format("INSERT INTO Kosarkasi VALUES('{0}',{1},)", kosarkas.Ime, kosarkas.Prezime, kosarkas.datum_rodjenja);
+                sql.CommandText = string.Format("INSERT INTO Kosarkasi VALUES('{0}',{1},'{2}')", kosarkas.Ime, kosarkas.Prezime, kosarkas.datum_rodjenja);
 
                 sqlConnection.Open();
 
